@@ -6,4 +6,4 @@ const HomePage = () => (
        <Directory />
     </div>
 )
-export default HomePage;
+export default HomePage; 
