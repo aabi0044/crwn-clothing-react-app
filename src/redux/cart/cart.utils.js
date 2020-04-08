@@ -13,14 +13,14 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 }
 
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
-console.log("cart",cartItems);
+console.log("cart on removing item",cartItems);
     const existingCartItem = cartItems.find(
         cartItem => cartItem.id === cartItemToRemove.id
     )
     if (existingCartItem.quantity === 1) {
-        return cartItems.filter(cartItem => cartItem.id === cartItemToRemove.id)
+        return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
     } else {
-        cartItems.map(cartItem => 
+       return cartItems.map(cartItem => 
             cartItem.id === cartItemToRemove.id
             ? {...cartItem,quantity:cartItem.quantity -1 }
             :cartItem
@@ -28,3 +28,4 @@ console.log("cart",cartItems);
     }
 
 }
+
