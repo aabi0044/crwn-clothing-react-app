@@ -47,7 +47,7 @@ class SignUp extends React.Component {
 
     }
     render() {
-        let displayName = this.state.displayName
+     
         return (
             <div className='sign-up'>
                 <h2 className='title'>
