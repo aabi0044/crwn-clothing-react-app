@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions'
+import { fetchCollectionsStart } from '../../redux/shop/shop.actions'
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import CollectionsOverViewContainer from '../../components/collection-overview/collections-overview.container';
 import { connect } from 'react-redux';
@@ -15,8 +15,8 @@ class ShopPage extends React.Component {
 
 
     componentDidMount() {
-        const { fetchCollectionsStartAsync } = this.props;
-        fetchCollectionsStartAsync();
+        const { fetchCollectionsStart } = this.props;
+        fetchCollectionsStart();
     }
     render() {
         const { match } = this.props;
@@ -28,10 +28,10 @@ class ShopPage extends React.Component {
                     exact
                     path={`${match.path}`}
                     component={CollectionsOverViewContainer}
-                />} />
+                />
 
                 <Route path={`${match.path}/:collectionId`}
-                   component={CollectionPageContainer} />}
+                    component={CollectionPageContainer}
                 />
                 {/* <Route path={`${match.path}/:collectionId`}
                     render={(props) => <CollectionPageWithSpinner
@@ -49,7 +49,7 @@ class ShopPage extends React.Component {
 // })
 
 const mapDispatchToProps = dispatch => ({
-    fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
+    fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
 });
 
 export default connect(null, mapDispatchToProps)(ShopPage);
